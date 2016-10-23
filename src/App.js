@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import './App.css'
 
 import GachaList from './components/GachaList'
+import Gacha from './components/GachaList/gachaConfig'
 
 const DOGIRAGON = 'DOGIRAGON'
 const DOKINDAMU = 'DOKINDAMU'
@@ -18,7 +19,8 @@ class App extends Component {
   }
 
   onGachaTypeChange (gachaType) {
-    return () => {
+    return (event) => {
+      event.preventDefault()
       this.setState({
         gachaType
       })
@@ -32,6 +34,7 @@ class App extends Component {
     const dokindamuTypeBtnClasses = classnames('gacha-type__button', {
       'gacha-type__button--active': this.state.gachaType === DOKINDAMU
     })
+    const gacha = Gacha.getGacha(this.state.gachaType)
 
     return (
       <div className="App">
@@ -42,12 +45,7 @@ class App extends Component {
           <button type="button" className={dogiragonTypeBtnClasses} onClick={this.onGachaTypeChange(DOGIRAGON)}>ドギラゴン・ガチャ</button>
           <button type="button" className={dokindamuTypeBtnClasses} onClick={this.onGachaTypeChange(DOKINDAMU)}>ドキンダム・ガチャ</button>
         </div>
-        <div className="dogiragon-gacha">
-          <GachaList gachaType={DOGIRAGON} />
-        </div>
-        <div className="dokindamu-gacha">
-          <GachaList gachaType={DOKINDAMU} />
-        </div>
+        <GachaList gacha={gacha} />
       </div>
     )
   }

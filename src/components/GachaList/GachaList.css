@@ -27,7 +27,7 @@
   font-size: 16px;
   margin: 0;
   margin-bottom: 16px;
-  background-color: #FAFAFA;
+  background-color: #F5F5F5;
   display: table;
   border-collapse: collapse;
   float: left;
@@ -36,8 +36,12 @@
 .gacha-list__item {
   display: table-row;
   height: 45px;
-  border-bottom: 1px solid #EEEEEE;
-  border-top: 1px solid #EEEEEE;
+  border-bottom: 1px solid #E0E0E0;
+  border-top: 1px solid #E0E0E0;
+}
+
+.gacha-list__item--active {
+  outline: #FF1744 solid 2px;
 }
 
 .gacha-list__item__title,
