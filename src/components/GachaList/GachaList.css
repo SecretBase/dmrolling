@@ -12,6 +12,15 @@
   box-sizing: border-box;
   padding: 8px 0;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.gacha-button:hover {
+  opacity: 0.8;
+}
+
+.gacha-button:active {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5) inset;
 }
 
 .gacha:after {
